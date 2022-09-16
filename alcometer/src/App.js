@@ -1,24 +1,34 @@
 import logo from './logo.svg';
 import './App.css';
+import {useState} from 'react';
 
 function App() {
+
+  const [gender, setGender] = useState('male');
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <form>
+      <h3>Calculating alcohol blood level</h3>
+      <div>
+        <label>Weight</label>
+        <input name="weight" type="number" step="1"></input>
+      </div>
+      <div>
+        <label>Bottles</label>
+      </div>
+      <div>
+        <label>Times</label>
+      </div>
+      <div>
+        <label>Gender</label>
+        <input type="radio" name="sukupuoli" value="male" defaultChecked onChange={e => setGender} /><label>Male</label>
+        <input type="radio" name="sukupuoli" value="female" onChange={e => setGender} /><label>Female</label>
+      </div>
+      <div>
+        <output></output>
+      </div>
+      <button>Calculate</button>
+    </form>
   );
 }
 
